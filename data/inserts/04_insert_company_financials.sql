@@ -1,7 +1,7 @@
 INSERT INTO company_financials (company_id, fiscal_year, revenue_usd_millions, cost_of_sales_usd_millions, gross_profit_usd_millions, op_profit_usd_millions, net_profit_usd_millions)
 VALUES
 -- Apple
-(1, 2021, 365816, 212981, 152836, 108949, 94680),
+(1, 2021, 365817, 212981, 152836, 108949, 94680),
 (1, 2022, 394328, 223546, 170782, 119437, 99803),
 (1, 2023, 383285, 214137, 169148, 114301, 96995),
 (1, 2024, 391035, 210352, 180683, 123216, 93737),
