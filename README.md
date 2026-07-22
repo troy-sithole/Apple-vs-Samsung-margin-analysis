@@ -41,7 +41,7 @@ ___
 ## Key Findings
 
 | Metric | Apple | Samsung |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | Gross margin FY2021 | 41.78% | 40.48% |
 | Gross margin FY2025 | 46.91% | 39.38% |
 | Gross margin trend | Improved every year | Down 10pts, partial recovery |
@@ -81,7 +81,7 @@ ___
 ## Data Sources
 
 | Source | Usage |
-| -—- | -—- |
+| --- | --- |
 | Apple Form 10-K (FY2021–2025) | Company totals, Products/Services segment revenue & gross profit |
 | Samsung Consolidated Statements of Profit or Loss (audited, FY2021–2025) | Company-level totals (revenue, cost of sales, gross/operating/net profit) |
 | Samsung Quarterly Earnings Presentations (4Q, FY2021–2025) | Segment-level revenue and operating profit (DX/DS/SDC/Harman) |
@@ -97,7 +97,7 @@ ___
 Apple and Samsung disclose different segment-level profitability metrics, so a single unified comparison isn’t possible at that level:
 
 | Metric | Apple (segment level) | Samsung (segment level) |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | Revenue | ✅ | ✅ |
 | Gross Profit | ✅ | ❌ not disclosed |
 | Operating Profit | ❌ not allocated | ✅ |
@@ -128,7 +128,7 @@ ___
 **companies**
 
 | Column | Type | Description |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | company_id | SERIAL PK | Unique company identifier |
 | company_name | VARCHAR(50) | Apple or Samsung |
 | reporting_currency | VARCHAR(10) | USD or KRW |
@@ -137,7 +137,7 @@ ___
 **segments**
 
 | Column | Type | Description |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | segment_id | SERIAL PK | Unique segment identifier |
 | company_id | INT FK | References companies |
 | segment_label | VARCHAR(50) | Original filing label (e.g. DX, DS) |
@@ -146,7 +146,7 @@ ___
 **company_financials**
 
 | Column | Type | Description |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | fiscal_year | INT | 2021–2025 |
 | revenue_usd_millions | NUMERIC(12,2) | Total revenue |
 | gross_profit_usd_millions | NUMERIC(12,2) | Gross profit |
@@ -156,7 +156,7 @@ ___
 **segment_revenue**
 
 | Column | Type | Description |
-| ——- | ——- | ——- |
+| --- | --- | --- |
 | fiscal_year | INT | 2021–2025 |
 | revenue_usd_millions | NUMERIC(12,2) | Segment revenue |
 | gross_profit_usd_millions | NUMERIC(12,2) | Apple only |
@@ -180,7 +180,7 @@ Window function calculating each segment’s percentage share of total revenue p
 **Result:**
 
 | Segment | FY2021 | FY2022 | FY2023 | FY2024 | FY2025 |
-| ——- | ——- | ——- | -—- | ——- | -—- |
+| --- | --- | --- | --- | --- | --- |
 | Products | 81.3% | 80.2% | 77.8% | 75.4% | 73.8% |
 | Services | 18.7% | 19.8% | 22.2% | 24.6% | 26.2% |
 
@@ -199,7 +199,7 @@ Same window function pattern applied to Samsung’s four business segments.
 **Result:**
 
 | Segment | FY2021 | FY2022 | FY2023 | FY2024 | FY2025 |
-| -—- | -—- | -—- | -—- | -—- | -—- |
+| --- | --- | --- | --- | --- | --- |
 | Device Experience | 54.8% | 55.5% | 60.3% | 53.1% | 51.7% |
 | Semiconductors | 31.4% | 30.0% | 23.6% | 33.7% | 35.8% |
 | Display | 10.5% | 10.5% | 11.0% | 8.9% | 8.2% |
@@ -218,7 +218,7 @@ Core comparison table joining `company_financials` to `companies`, calculating g
 **Result:**
 
 | Company | FY2021 | FY2022 | FY2023 | FY2024 | FY2025 |
-| ——- | -—- | -—- | -—- | -—- | -—- |
+| --- | --- | --- | --- | --- | --- |
 | Apple (Gross Margin) | 41.78% | 43.31% | 44.13% | 46.21% | 46.91% |
 | Samsung (Gross Margin) | 40.48% | 37.12% | 30.33% | 37.99% | 39.38% |
 | Apple (Operating Margin) | 29.78% | 30.29% | 29.82% | 31.51% | 31.97% |
@@ -239,7 +239,7 @@ ___
 **Result:**
 
 | Company | Metric | Largest YoY Swing |
-| -—- | -—- | -—- |
+| --- | --- | --- |
 | Apple | Gross Margin | +2.08 points (FY2024) |
 | Samsung | Gross Margin | -6.79 points (FY2023) |
 | Apple | Operating Margin | +1.69 points (FY2024) |
@@ -256,7 +256,7 @@ Decomposes blended margin improvement into mix effect vs. segment margin effect.
 **Result:**
 
 | Segment | FY2021 Margin | FY2025 Margin | Change |
-| -—- | -—- | -—- | -—- |
+| --- | --- | --- | --- |
 | Products | 35.35% | 36.77% | +1.42pp |
 | Services | 69.73% | 75.41% | +5.68pp |
 
@@ -273,7 +273,7 @@ Segment-level operating margin trend by division.
 **Result:**
 
 | Segment | FY2021 Margin | FY2023 Margin | FY2025 Margin |
-| ——- | -—- | -—- | -—- |
+| --- | --- | --- | --- |
 | Device Experience | 10.46% | 8.47% | 6.86% |
 | Semiconductors | 30.60% | -22.37% | 19.14% |
 | Display | 14.06% | 18.06% | 13.78% |
@@ -351,7 +351,7 @@ ___
 ## Tools Used
 
 | Tool | Purpose |
-| -—- | -—- |
+| --- | --- |
 | PostgreSQL (Neon) | Serverless database, schema design, SQL analysis |
 | Excel | Data extraction and verification from source filings |
 | Looker Studio | Dashboard visualization |
